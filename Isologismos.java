@@ -4,17 +4,16 @@ import java.util.Scanner;
 
 public class Isologismos {
 
-	
 
 	public HashMap<String, Double> addDataAsset(HashMap<String, Double> map) {
-		System.out.println("Enter the asset data,if you want to stop adding data type stop at the category.");
+		System.out.println("Enter the asset data,if you want to stop adding data type stop.");
 		Scanner input = new Scanner(System.in);
-		String category = "l";
+		String category = "category";
 		Double value;
 
 		do {
 			System.out.print("Enter the category: ");
-			category = input.next();
+			category=input.next();
 			if (!category.equals("stop")) {
 			System.out.print("Enter the value:");
 			value = input.nextDouble();
@@ -27,7 +26,7 @@ public class Isologismos {
 	public HashMap<String, Double> addDataLiabilities(HashMap<String, Double> map) {
 		System.out.println("Enter the liability data,if you want to stop adding data type stop at the category.");
 		Scanner input = new Scanner(System.in);
-		String category = "l";
+		String category = "category";
 		Double value;
 
 		do {
@@ -55,6 +54,7 @@ public class Isologismos {
 		} else {
 			return false;
 		}
+		
 	}
 	
 	
