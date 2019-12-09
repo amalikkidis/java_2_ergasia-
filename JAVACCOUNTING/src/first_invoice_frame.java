@@ -15,19 +15,20 @@ import javax.swing.SwingConstants;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import java.awt.Color;
+import javax.swing.UIManager;
 
 public class first_invoice_frame extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
+	private JTextField arithmos_tim;
+	private JTextField paragogos;
+	private JTextField posotita;
+	private JTextField afm;
+	private JTextField im_ekdosis;
+	private JTextField price;
 	private JTable table;
+	private JComboBox VAT_combobox;
+	private JTextField final_price;
 
 	/**
 	 * Launch the application.
@@ -82,120 +83,113 @@ public class first_invoice_frame extends JFrame {
 		invoiceItemLayeredPane.add(itemsFieldPanel, "name_22954513041800");
 		itemsFieldPanel.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(27, 174, 178, 36);
-		itemsFieldPanel.add(comboBox);
+		JComboBox comboBox_product = new JComboBox();
+		comboBox_product.setBounds(113, 174, 178, 36);
+		itemsFieldPanel.add(comboBox_product);
 		
-		JLabel lblNewLabel = new JLabel("Προϊον");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(28, 143, 66, 29);
-		itemsFieldPanel.add(lblNewLabel);
+		JLabel product_label = new JLabel("Product");
+		product_label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		product_label.setBounds(113, 147, 66, 29);
+		itemsFieldPanel.add(product_label);
 		
-		JLabel label = new JLabel("Φ.Π.Α");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label.setBounds(567, 147, 50, 20);
-		itemsFieldPanel.add(label);
+		JLabel lblVat = new JLabel("VAT");
+		lblVat.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblVat.setBounds(400, 151, 50, 20);
+		itemsFieldPanel.add(lblVat);
 		
-		textField = new JTextField();
-		textField.setBounds(338, 73, 128, 37);
-		itemsFieldPanel.add(textField);
-		textField.setColumns(10);
+		arithmos_tim = new JTextField();
+		arithmos_tim.setBounds(113, 80, 128, 37);
+		itemsFieldPanel.add(arithmos_tim);
+		arithmos_tim.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(86, 149, 119, 20);
-		itemsFieldPanel.add(textField_1);
-		textField_1.setColumns(10);
+		VAT_combobox = new JComboBox();
+		VAT_combobox.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		VAT_combobox.setBounds(400, 174, 66, 36);
+		itemsFieldPanel.add(VAT_combobox);
+		VAT_combobox.addItem("0");
+		VAT_combobox.addItem("5");
+		VAT_combobox.addItem("12");
+		VAT_combobox.addItem("18");
+		VAT_combobox.addItem("24");
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		comboBox_1.setBounds(567, 174, 66, 36);
-		itemsFieldPanel.add(comboBox_1);
 		
-		JLabel label_1 = new JLabel("Αριθμός Τιμολογίου");
-		label_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_1.setBounds(338, 46, 126, 23);
-		itemsFieldPanel.add(label_1);
 		
-		JLabel lblNewLabel_1 = new JLabel("Παραγωγός");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1.setBounds(677, 46, 126, 23);
-		itemsFieldPanel.add(lblNewLabel_1);
+		JLabel lblInvoiceNumber = new JLabel("Invoice number");
+		lblInvoiceNumber.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblInvoiceNumber.setBounds(113, 57, 126, 23);
+		itemsFieldPanel.add(lblInvoiceNumber);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		textField_2.setBounds(677, 74, 136, 36);
-		itemsFieldPanel.add(textField_2);
-		textField_2.setColumns(10);
+		JLabel Manufacturer_lbl = new JLabel("Manufacturer");
+		Manufacturer_lbl.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		Manufacturer_lbl.setBounds(631, 57, 126, 23);
+		itemsFieldPanel.add(Manufacturer_lbl);
 		
-		JLabel label_2 = new JLabel("Ποσότητα");
-		label_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_2.setBounds(844, 146, 126, 23);
-		itemsFieldPanel.add(label_2);
+		paragogos = new JTextField();
+		paragogos.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		paragogos.setBounds(631, 81, 136, 36);
+		itemsFieldPanel.add(paragogos);
+		paragogos.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		textField_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		textField_3.setText("0");
-		textField_3.setColumns(10);
-		textField_3.setBounds(844, 175, 136, 36);
-		itemsFieldPanel.add(textField_3);
+		JLabel lblQuantity = new JLabel("Quantity");
+		lblQuantity.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblQuantity.setBounds(834, 150, 126, 23);
+		itemsFieldPanel.add(lblQuantity);
 		
-		JLabel label_3 = new JLabel("Έκπτωση %");
-		label_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_3.setBounds(338, 146, 126, 23);
-		itemsFieldPanel.add(label_3);
+		posotita = new JTextField();
+		posotita.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		posotita.setHorizontalAlignment(SwingConstants.RIGHT);
+		posotita.setText("0");
+		posotita.setColumns(10);
+		posotita.setBounds(834, 175, 136, 36);
+		itemsFieldPanel.add(posotita);
 		
-		textField_4 = new JTextField();
-		textField_4.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		textField_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		textField_4.setText("0");
-		textField_4.setColumns(10);
-		textField_4.setBounds(338, 175, 136, 36);
-		itemsFieldPanel.add(textField_4);
+		JLabel TIN_lbl = new JLabel("ΤΙΝ");
+		TIN_lbl.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		TIN_lbl.setBounds(400, 57, 126, 23);
+		itemsFieldPanel.add(TIN_lbl);
 		
-		JLabel label_4 = new JLabel("Α.Φ.Μ");
-		label_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_4.setBounds(507, 46, 126, 23);
-		itemsFieldPanel.add(label_4);
+		afm = new JTextField();
+		afm.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		afm.setHorizontalAlignment(SwingConstants.RIGHT);
+		afm.setColumns(10);
+		afm.setBounds(400, 81, 136, 36);
+		itemsFieldPanel.add(afm);
 		
-		textField_5 = new JTextField();
-		textField_5.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		textField_5.setHorizontalAlignment(SwingConstants.RIGHT);
-		textField_5.setColumns(10);
-		textField_5.setBounds(507, 74, 136, 36);
-		itemsFieldPanel.add(textField_5);
+		JLabel lblIssueDate = new JLabel("Issue date");
+		lblIssueDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblIssueDate.setBounds(834, 57, 126, 23);
+		itemsFieldPanel.add(lblIssueDate);
 		
-		JLabel label_5 = new JLabel("Ημ/νια Έκδοσης");
-		label_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_5.setBounds(844, 46, 126, 23);
-		itemsFieldPanel.add(label_5);
+		im_ekdosis = new JTextField();
+		im_ekdosis.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		im_ekdosis.setColumns(10);
+		im_ekdosis.setBounds(834, 81, 136, 36);
+		itemsFieldPanel.add(im_ekdosis);
 		
-		textField_6 = new JTextField();
-		textField_6.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		textField_6.setColumns(10);
-		textField_6.setBounds(844, 74, 136, 36);
-		itemsFieldPanel.add(textField_6);
+		JLabel lblPrice = new JLabel("Price");
+		lblPrice.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblPrice.setBounds(631, 150, 126, 23);
+		itemsFieldPanel.add(lblPrice);
 		
-		JLabel label_6 = new JLabel("Τιμή");
-		label_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_6.setBounds(677, 146, 126, 23);
-		itemsFieldPanel.add(label_6);
-		
-		textField_7 = new JTextField();
-		textField_7.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		textField_7.setHorizontalAlignment(SwingConstants.RIGHT);
-		textField_7.setText("0");
-		textField_7.setColumns(10);
-		textField_7.setBounds(677, 175, 136, 36);
-		itemsFieldPanel.add(textField_7);
-		
-		JCheckBox checkBox = new JCheckBox("Πρόσθεσε");
-		checkBox.setForeground(new Color(0, 139, 139));
-		checkBox.setBounds(27, 126, 73, 23);
-		itemsFieldPanel.add(checkBox);
+		price = new JTextField();
+		price.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		price.setHorizontalAlignment(SwingConstants.RIGHT);
+		price.setText("0");
+		price.setColumns(10);
+		price.setBounds(631, 175, 136, 36);
+		itemsFieldPanel.add(price);
 		
 		table = new JTable();
 		table.setBounds(53, 108, 1, 1);
 		itemsFieldPanel.add(table);
+		
+		JLabel total_v_lbl = new JLabel("Total value");
+		total_v_lbl.setBounds(724, 474, 56, 16);
+		panel.add(total_v_lbl);
+		
+		final_price = new JTextField();
+		final_price.setBounds(810, 471, 116, 22);
+		panel.add(final_price);
+		final_price.setColumns(10);
 	}
 }
