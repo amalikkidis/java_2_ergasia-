@@ -1,8 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 public class EsodaExoda {
-
-	public static void main(String[] args) {
+        public void esodaExoda() {
 		double esoda = 0;
 		double exoda = 0;
 		double kz;
