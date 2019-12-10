@@ -190,7 +190,7 @@ public class InvoiceDialog extends JFrame {
 
 	public InvoiceDialog(Invoice invoice) {
 		this();
-		this.arithmos_tim.setText("" + invoice.getInvoiceÍumber());
+		this.arithmos_tim.setText("" + invoice.getInvoiceNumber());
 		this.afm.setText(invoice.getSsn());
 		this.paragogos.setText(invoice.getManufacturer());
 		this.im_ekdosis.setText(invoice.getIssueDate().toString());

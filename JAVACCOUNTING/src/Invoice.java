@@ -5,17 +5,17 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class Invoice {
-	private int invoiceÍumber;
+	private int invoiceNumber;
 	private String ssn, manufacturer;
 	private Date issueDate;
 	private BigDecimal totalValue;
 	private HashMap<String, Integer> cart; // Map product id to quantity
 	private Vat vat;
 
-	public Invoice(int invoiceÍumber, String ssn, String manufacturer, Date issueDate, Vat vat, BigDecimal totalValue,
+	public Invoice(int invoiceNumber, String ssn, String manufacturer, Date issueDate, Vat vat, BigDecimal totalValue,
 			HashMap<String, Integer> cart) {
 		super();
-		this.invoiceÍumber = invoiceÍumber;
+		this.invoiceNumber = invoiceNumber;
 		this.ssn = ssn;
 		this.manufacturer = manufacturer;
 		this.issueDate = issueDate;
@@ -26,7 +26,7 @@ public class Invoice {
 	}
 
 	public Invoice() {
-		this.invoiceÍumber = 0;
+		this.invoiceNumber = 0;
 		this.ssn = "Enter SSN";
 		this.manufacturer = "Enter Manufacturer";
 		this.issueDate = new Date();
@@ -39,12 +39,12 @@ public class Invoice {
 		this.cart.put("Banana", 5);
 	}
 
-	public int getInvoiceÍumber() {
-		return invoiceÍumber;
+	public int getInvoiceNumber() {
+		return invoiceNumber;
 	}
 
-	public void setInvoiceÍumber(int invoice_number) {
-		this.invoiceÍumber = invoice_number;
+	public void setInvoiceNumber(int invoice_number) {
+		this.invoiceNumber = invoice_number;
 	}
 
 	public String getSsn() {
