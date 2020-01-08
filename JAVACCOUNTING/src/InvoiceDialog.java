@@ -21,6 +21,7 @@ import javax.swing.JTable;
 import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 
 public class InvoiceDialog extends JFrame {
 
@@ -30,7 +31,6 @@ public class InvoiceDialog extends JFrame {
 	private JTextField posotita;
 	private JTextField afm;
 	private JTextField im_ekdosis;
-	private JTextField price;
 	private JTable table;
 	private JComboBox VAT_combobox;
 	private JComboBox comboBox_product;
@@ -72,7 +72,7 @@ public class InvoiceDialog extends JFrame {
 		panel.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 244, 990, 206);
+		scrollPane.setBounds(10, 260, 990, 206);
 		panel.add(scrollPane);
 
 		JLayeredPane invoiceItemLayeredPane = new JLayeredPane();
@@ -85,49 +85,49 @@ public class InvoiceDialog extends JFrame {
 		itemsFieldPanel.setLayout(null);
 
 		comboBox_product = new JComboBox(Product.productMap.keySet().toArray());
-		comboBox_product.setBounds(113, 174, 178, 36);
+		comboBox_product.setBounds(15, 172, 178, 36);
 		itemsFieldPanel.add(comboBox_product);
 
 		JLabel product_label = new JLabel("Product");
 		product_label.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		product_label.setBounds(113, 147, 66, 29);
+		product_label.setBounds(15, 147, 66, 29);
 		itemsFieldPanel.add(product_label);
 
 		JLabel lblVat = new JLabel("VAT");
 		lblVat.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblVat.setBounds(400, 151, 50, 20);
+		lblVat.setBounds(232, 151, 50, 20);
 		itemsFieldPanel.add(lblVat);
 
 		arithmos_tim = new JTextField();
-		arithmos_tim.setBounds(113, 80, 128, 37);
+		arithmos_tim.setBounds(15, 78, 128, 37);
 		itemsFieldPanel.add(arithmos_tim);
 		arithmos_tim.setColumns(10);
 
 		VAT_combobox = new JComboBox();
 		VAT_combobox.setModel(new DefaultComboBoxModel(Vat.values()));
 		VAT_combobox.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		VAT_combobox.setBounds(400, 174, 66, 36);
+		VAT_combobox.setBounds(232, 174, 84, 36);
 		itemsFieldPanel.add(VAT_combobox);
 
 		JLabel lblInvoiceNumber = new JLabel("Invoice number");
 		lblInvoiceNumber.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblInvoiceNumber.setBounds(113, 57, 126, 23);
+		lblInvoiceNumber.setBounds(15, 57, 126, 23);
 		itemsFieldPanel.add(lblInvoiceNumber);
 
 		JLabel Manufacturer_lbl = new JLabel("Manufacturer");
 		Manufacturer_lbl.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Manufacturer_lbl.setBounds(631, 57, 126, 23);
+		Manufacturer_lbl.setBounds(343, 57, 126, 23);
 		itemsFieldPanel.add(Manufacturer_lbl);
 
 		paragogos = new JTextField();
 		paragogos.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		paragogos.setBounds(631, 81, 136, 36);
+		paragogos.setBounds(343, 81, 136, 36);
 		itemsFieldPanel.add(paragogos);
 		paragogos.setColumns(10);
 
 		JLabel lblQuantity = new JLabel("Quantity");
 		lblQuantity.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblQuantity.setBounds(834, 150, 126, 23);
+		lblQuantity.setBounds(518, 150, 126, 23);
 		itemsFieldPanel.add(lblQuantity);
 
 		posotita = new JTextField();
@@ -135,51 +135,55 @@ public class InvoiceDialog extends JFrame {
 		posotita.setHorizontalAlignment(SwingConstants.RIGHT);
 		posotita.setText("0");
 		posotita.setColumns(10);
-		posotita.setBounds(834, 175, 136, 36);
+		posotita.setBounds(518, 175, 136, 36);
 		itemsFieldPanel.add(posotita);
 
 		JLabel TIN_lbl = new JLabel("SSN");
 		TIN_lbl.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		TIN_lbl.setBounds(400, 57, 126, 23);
+		TIN_lbl.setBounds(180, 57, 126, 23);
 		itemsFieldPanel.add(TIN_lbl);
 
 		afm = new JTextField();
 		afm.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		afm.setHorizontalAlignment(SwingConstants.RIGHT);
 		afm.setColumns(10);
-		afm.setBounds(400, 81, 136, 36);
+		afm.setBounds(180, 81, 136, 36);
 		itemsFieldPanel.add(afm);
 
 		JLabel lblIssueDate = new JLabel("Issue date");
 		lblIssueDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblIssueDate.setBounds(834, 57, 126, 23);
+		lblIssueDate.setBounds(518, 57, 126, 23);
 		itemsFieldPanel.add(lblIssueDate);
 
 		im_ekdosis = new JTextField();
 		im_ekdosis.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		im_ekdosis.setColumns(10);
-		im_ekdosis.setBounds(834, 81, 136, 36);
+		im_ekdosis.setBounds(518, 81, 136, 36);
 		itemsFieldPanel.add(im_ekdosis);
 
 		JLabel lblPrice = new JLabel("Price");
 		lblPrice.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPrice.setBounds(631, 150, 126, 23);
+		lblPrice.setBounds(385, 150, 126, 23);
 		itemsFieldPanel.add(lblPrice);
-
-		price = new JTextField();
-		price.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		price.setHorizontalAlignment(SwingConstants.RIGHT);
-		price.setText("0");
-		price.setColumns(10);
-		price.setBounds(631, 175, 136, 36);
-		itemsFieldPanel.add(price);
 
 		table = new JTable();
 		table.setBounds(53, 108, 1, 1);
 		itemsFieldPanel.add(table);
+		
+		JLabel priceLabel = new JLabel("");
+		priceLabel.setBounds(385, 172, 84, 36);
+		itemsFieldPanel.add(priceLabel);
+		
+		JButton btnAdd = new JButton("Add");
+		btnAdd.setBounds(753, 126, 115, 50);
+		itemsFieldPanel.add(btnAdd);
+		
+		JLabel output1 = new JLabel("output1");
+		output1.setBounds(753, 73, 115, 36);
+		itemsFieldPanel.add(output1);
 
 		JLabel total_v_lbl = new JLabel("Total value");
-		total_v_lbl.setBounds(724, 474, 56, 16);
+		total_v_lbl.setBounds(679, 474, 116, 16);
 		panel.add(total_v_lbl);
 
 		final_price = new JTextField();
