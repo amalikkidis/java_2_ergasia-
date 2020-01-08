@@ -35,6 +35,7 @@ public class InvoiceDialog extends JFrame {
 	private JComboBox VAT_combobox;
 	private JComboBox comboBox_product;
 	private JTextField final_price;
+	private JLabel priceLabel;
 
 	/**
 	 * Launch the application.
@@ -170,7 +171,7 @@ public class InvoiceDialog extends JFrame {
 		table.setBounds(53, 108, 1, 1);
 		itemsFieldPanel.add(table);
 		
-		JLabel priceLabel = new JLabel("");
+		priceLabel = new JLabel("");
 		priceLabel.setBounds(385, 172, 84, 36);
 		itemsFieldPanel.add(priceLabel);
 		
@@ -203,7 +204,7 @@ public class InvoiceDialog extends JFrame {
 
 		String productName = String.valueOf(comboBox_product.getSelectedItem());
 		Product product = Product.getProductByName(productName);
-		this.price.setText(product.getPrice().toString());
+		this.priceLabel.setText(product.getPrice().toString());
 		this.posotita.setText(invoice.getItems().get(productName).toString());
 	}
 }
