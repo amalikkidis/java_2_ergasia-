@@ -22,6 +22,8 @@ import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class InvoiceDialog extends JFrame {
 
@@ -41,9 +43,9 @@ public class InvoiceDialog extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		new Product("Banana", new BigDecimal("0.14")).addToProductMap();
-		new Product("Apple", new BigDecimal("0.08")).addToProductMap();
-		new Product("Orange", new BigDecimal("0.06")).addToProductMap();
+		new Product("Banana", new BigDecimal("0.14"), Vat.NONE).addToProductMap();
+		new Product("Apple", new BigDecimal("0.08"), Vat.STANDARD).addToProductMap();
+		new Product("Orange", new BigDecimal("0.06"), Vat.LOW).addToProductMap();
 		InvoiceDialog frame = new InvoiceDialog(new Invoice());
 		frame.setVisible(true);
 	}
@@ -176,6 +178,11 @@ public class InvoiceDialog extends JFrame {
 		itemsFieldPanel.add(priceLabel);
 		
 		JButton btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				priceLabel.setText("Hello");
+			}
+		});
 		btnAdd.setBounds(753, 126, 115, 50);
 		itemsFieldPanel.add(btnAdd);
 		

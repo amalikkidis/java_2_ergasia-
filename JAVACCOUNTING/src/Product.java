@@ -6,15 +6,17 @@ import java.util.HashMap;
 public class Product {
 	private String name; // Assumes names are unique
 	private BigDecimal price;
+	private Vat vat;
 
 	public static HashMap<String, Product> productMap = new HashMap<String, Product>(); // Global map of product ids
 																						// to Products
 
-	public Product(String name, BigDecimal price) {
+	public Product(String name, BigDecimal price, Vat vat) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.price.setScale(2, BigDecimal.ROUND_HALF_EVEN); // Round up to two decimal points
+		this.vat = vat;
 	}
 
 	public void addToProductMap() {

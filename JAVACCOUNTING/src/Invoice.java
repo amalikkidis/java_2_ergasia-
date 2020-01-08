@@ -9,7 +9,7 @@ public class Invoice {
 	private String ssn, manufacturer;
 	private Date issueDate;
 	private BigDecimal totalValue;
-	private HashMap<String, Integer> cart; // Map product id to quantity
+	private HashMap<String, Integer> cart; // Map product name (should be unique) to quantity
 	private Vat vat;
 
 	public Invoice(int invoiceNumber, String ssn, String manufacturer, Date issueDate, Vat vat, BigDecimal totalValue,
