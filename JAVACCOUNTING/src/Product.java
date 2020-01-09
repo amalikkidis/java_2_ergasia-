@@ -35,6 +35,14 @@ public class Product {
 		return name;
 	}
 
+	public Vat getVat() {
+		return vat;
+	}
+
+	public void setVat(Vat vat) {
+		this.vat = vat;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

@@ -191,7 +191,9 @@ public class InvoiceDialog extends JFrame {
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				scrollPanePanel.add(new ProductJpanel());
+				String comboBoxString = comboBox_product.getSelectedItem().toString();
+				System.out.println(comboBoxString);
+				scrollPanePanel.add(new ProductJpanel(new Product("Inna Innaki DVD", new BigDecimal("9.99"), Vat.LOW), 10));
 				scrollPanePanel.revalidate();
 			}
 		});
