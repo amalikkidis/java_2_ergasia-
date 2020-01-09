@@ -55,4 +55,8 @@ public class Product {
 		this.price = price;
 	}
 
+	public BigDecimal getPriceWithVat() {
+		return price.multiply(vat.getValue().add(new BigDecimal("1")));
+	}
+
 }

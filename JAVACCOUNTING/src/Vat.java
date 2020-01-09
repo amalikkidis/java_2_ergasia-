@@ -16,4 +16,8 @@ public enum Vat {
     public BigDecimal getValue() {
         return value;
     }
+    
+    public String getVatString() {
+    	return getValue().multiply(new BigDecimal(100)).toString();
+    }
 }
