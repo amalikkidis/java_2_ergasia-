@@ -3,6 +3,7 @@ package src;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.Dimension;
 
 public class ProductJpanel extends JPanel {
 	
@@ -12,6 +13,8 @@ public class ProductJpanel extends JPanel {
 	 * Create the panel.
 	 */
 	public ProductJpanel() {
+		setPreferredSize(new Dimension(950, 100));
+		setBackground(Color.CYAN);
 		setLayout(null);
 		productLBL = new JLabel("product");
 		productLBL.setBounds(42, 69, 69, 20);

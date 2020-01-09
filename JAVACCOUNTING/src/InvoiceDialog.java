@@ -24,6 +24,9 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.BoxLayout;
+import javax.swing.ScrollPaneConstants;
+import java.awt.Dimension;
 
 public class InvoiceDialog extends JFrame {
 
@@ -38,6 +41,8 @@ public class InvoiceDialog extends JFrame {
 	private JComboBox comboBox_product;
 	private JTextField final_price;
 	private JLabel priceLabel;
+	private JScrollPane scrollPane;
+	private JPanel scrollPanePanel;
 
 	/**
 	 * Launch the application.
@@ -74,9 +79,15 @@ public class InvoiceDialog extends JFrame {
 		workSpaceLayeredPane.add(panel, "name_2435266846600");
 		panel.setLayout(null);
 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 260, 990, 206);
+		scrollPane = new JScrollPane();
+		scrollPane.getViewport().setPreferredSize(new Dimension(990, 250));
+		scrollPane.setBounds(10, 260, 968, 206);
 		panel.add(scrollPane);
+
+		scrollPanePanel = new JPanel();
+		scrollPane.setViewportView(scrollPanePanel);
+		scrollPane.revalidate();
+		scrollPanePanel.setLayout(new BoxLayout(scrollPanePanel, BoxLayout.Y_AXIS));
 
 		JLayeredPane invoiceItemLayeredPane = new JLayeredPane();
 		invoiceItemLayeredPane.setBounds(0, 0, 990, 244);
@@ -172,20 +183,21 @@ public class InvoiceDialog extends JFrame {
 		table = new JTable();
 		table.setBounds(53, 108, 1, 1);
 		itemsFieldPanel.add(table);
-		
+
 		priceLabel = new JLabel("");
 		priceLabel.setBounds(385, 172, 84, 36);
 		itemsFieldPanel.add(priceLabel);
-		
+
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				priceLabel.setText("Hello");
+				scrollPanePanel.add(new ProductJpanel());
+				scrollPanePanel.revalidate();
 			}
 		});
 		btnAdd.setBounds(753, 126, 115, 50);
 		itemsFieldPanel.add(btnAdd);
-		
+
 		JLabel output1 = new JLabel("output1");
 		output1.setBounds(753, 73, 115, 36);
 		itemsFieldPanel.add(output1);
