@@ -198,10 +198,6 @@ public class InvoiceDialog extends JFrame {
 		btnAdd.setBounds(753, 126, 115, 50);
 		itemsFieldPanel.add(btnAdd);
 
-		JLabel output1 = new JLabel("output1");
-		output1.setBounds(753, 73, 115, 36);
-		itemsFieldPanel.add(output1);
-
 		JLabel total_v_lbl = new JLabel("Total value");
 		total_v_lbl.setBounds(679, 474, 116, 16);
 		panel.add(total_v_lbl);
