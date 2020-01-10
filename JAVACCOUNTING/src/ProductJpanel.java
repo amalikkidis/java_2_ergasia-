@@ -77,8 +77,8 @@ public class ProductJpanel extends JPanel {
 		this.productName.setText(product.getName());
 		this.priceName.setText(product.getPrice().toString());
 		this.quantity_amount.setText(quantity.toString());
-		this.VAT_amount.setText(product.getVat().getValue().toString());
-		this.fprice_output.setText((product.getPrice().multiply(product.getVat().getValue()).multiply(new BigDecimal(quantity)).toString()));
+		this.VAT_amount.setText(product.getVat().getVatString());
+		this.fprice_output.setText((product.getPrice().multiply(product.getPriceWithVat().multiply(new BigDecimal(1))).toString()));
 		
 		
 	}

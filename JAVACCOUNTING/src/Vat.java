@@ -18,6 +18,6 @@ public enum Vat {
     }
     
     public String getVatString() {
-    	return getValue().multiply(new BigDecimal(100)).toString();
+    	return getValue().multiply(new BigDecimal(100)).toString() + "%";
     }
 }

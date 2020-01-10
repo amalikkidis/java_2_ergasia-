@@ -11,9 +11,25 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Invoice_start_page extends JFrame implements ActionListener {
+public class Invoice_start_page {
 
-	private JFrame frame;
+	private JFrame frame; // to connect message window with parent login frame
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public JTextField getUsername() {
+		return username;
+	}
+
+	public void setUsername(JTextField username) {
+		this.username = username;
+	}
+
 	private JTextField username;
 	private JTextField password;
 
@@ -101,9 +117,5 @@ public class Invoice_start_page extends JFrame implements ActionListener {
 		frame.getContentPane().add(lblHelpUsername);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

@@ -213,8 +213,9 @@ public class InvoiceDialog extends JFrame {
 		JButton btnSaveExit = new JButton("Save & Exit");
 		btnSaveExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new Invoice_start_page();
-				//dispose();
+				Invoice_start_page b = new Invoice_start_page();
+				b.getFrame().setVisible(true);
+				dispose();
 			}
 		});
 		btnSaveExit.setBounds(470, 481, 115, 43);
