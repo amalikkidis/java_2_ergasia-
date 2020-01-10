@@ -37,12 +37,12 @@ public class InvoiceDialog extends JFrame {
 	private JTextField afm;
 	private JTextField im_ekdosis;
 	private JTable table;
-	private JComboBox VAT_combobox;
 	private JComboBox comboBox_product;
 	private JTextField final_price;
 	private JLabel priceLabel;
 	private JScrollPane scrollPane;
 	private JPanel scrollPanePanel;
+	private JLabel vat_label;
 
 	/**
 	 * Launch the application.
@@ -100,6 +100,16 @@ public class InvoiceDialog extends JFrame {
 		itemsFieldPanel.setLayout(null);
 
 		comboBox_product = new JComboBox(Product.productMap.keySet().toArray());
+		comboBox_product.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String comboBoxString = comboBox_product.getSelectedItem().toString();
+				Product pro = Product.getProductByName(comboBoxString);
+			String vat_string =	pro.getVat().getVatString();
+			vat_label.setText(vat_string);
+			String price_string = pro.getPrice().toString();
+			priceLabel.setText(price_string);
+			}
+		});
 		comboBox_product.setBounds(15, 172, 178, 36);
 		itemsFieldPanel.add(comboBox_product);
 
@@ -110,19 +120,13 @@ public class InvoiceDialog extends JFrame {
 
 		JLabel lblVat = new JLabel("VAT");
 		lblVat.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblVat.setBounds(232, 151, 50, 20);
+		lblVat.setBounds(256, 151, 50, 20);
 		itemsFieldPanel.add(lblVat);
 
 		arithmos_tim = new JTextField();
 		arithmos_tim.setBounds(15, 78, 128, 37);
 		itemsFieldPanel.add(arithmos_tim);
 		arithmos_tim.setColumns(10);
-
-		VAT_combobox = new JComboBox();
-		VAT_combobox.setModel(new DefaultComboBoxModel(Vat.values()));
-		VAT_combobox.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		VAT_combobox.setBounds(232, 174, 84, 36);
-		itemsFieldPanel.add(VAT_combobox);
 
 		JLabel lblInvoiceNumber = new JLabel("Invoice number");
 		lblInvoiceNumber.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -186,20 +190,26 @@ public class InvoiceDialog extends JFrame {
 		itemsFieldPanel.add(table);
 
 		priceLabel = new JLabel("");
-		priceLabel.setBounds(385, 172, 84, 36);
+		priceLabel.setBounds(368, 179, 84, 29);
 		itemsFieldPanel.add(priceLabel);
 
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String comboBoxString = comboBox_product.getSelectedItem().toString();
-				System.out.println(comboBoxString);
-				scrollPanePanel.add(new ProductJpanel(new Product("Inna Innaki DVD", new BigDecimal("9.99"), Vat.LOW), 10));
+				Product pro = Product.getProductByName(comboBoxString);
+				String posotita_string = posotita.getText();
+				Integer posotita_int = Integer.parseInt(posotita_string);
+				scrollPanePanel.add(new ProductJpanel(pro, posotita_int));
 				scrollPanePanel.revalidate();
 			}
 		});
 		btnAdd.setBounds(753, 126, 115, 50);
 		itemsFieldPanel.add(btnAdd);
+		
+		vat_label = new JLabel("");
+		vat_label.setBounds(237, 188, 69, 20);
+		itemsFieldPanel.add(vat_label);
 
 		JLabel total_v_lbl = new JLabel("Total value");
 		total_v_lbl.setBounds(679, 474, 116, 16);
@@ -229,7 +239,7 @@ public class InvoiceDialog extends JFrame {
 		this.paragogos.setText(invoice.getManufacturer());
 		this.im_ekdosis.setText(invoice.getIssueDate().toString());
 		this.final_price.setText(invoice.getTotalValue().toString());
-		this.VAT_combobox.setSelectedItem(invoice.getVat());
+		
 
 		String productName = String.valueOf(comboBox_product.getSelectedItem());
 		Product product = Product.getProductByName(productName);
