@@ -43,6 +43,7 @@ public class InvoiceDialog extends JFrame {
 	private JScrollPane scrollPane;
 	private JPanel scrollPanePanel;
 	private JLabel vat_label;
+	private Invoice invoice;
 
 	/**
 	 * Launch the application.
@@ -202,6 +203,14 @@ public class InvoiceDialog extends JFrame {
 				Integer posotita_int = Integer.parseInt(posotita_string);
 				scrollPanePanel.add(new ProductJpanel(pro, posotita_int));
 				scrollPanePanel.revalidate();
+				Integer quantity = invoice.getItems().get(comboBoxString);
+				if(quantity == null) {
+					invoice.getItems().put(comboBoxString, posotita_int);
+				}
+				else {
+					quantity += posotita_int;
+				}
+				
 			}
 		});
 		btnAdd.setBounds(753, 126, 115, 50);
@@ -239,7 +248,7 @@ public class InvoiceDialog extends JFrame {
 		this.paragogos.setText(invoice.getManufacturer());
 		this.im_ekdosis.setText(invoice.getIssueDate().toString());
 		this.final_price.setText(invoice.getTotalValue().toString());
-		
+		this.invoice = invoice;
 
 		String productName = String.valueOf(comboBox_product.getSelectedItem());
 		Product product = Product.getProductByName(productName);
