@@ -53,6 +53,7 @@ public class InvoiceDialog extends JFrame {
 		new Product("Orange", new BigDecimal("0.06"), Vat.LOW).addToProductMap();
 		InvoiceDialog frame = new InvoiceDialog(new Invoice());
 		frame.setVisible(true);
+		Invoice_start_page obj = new Invoice_start_page();
 	}
 
 	/**
@@ -210,6 +211,12 @@ public class InvoiceDialog extends JFrame {
 		final_price.setColumns(10);
 		
 		JButton btnSaveExit = new JButton("Save & Exit");
+		btnSaveExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new Invoice_start_page();
+				//dispose();
+			}
+		});
 		btnSaveExit.setBounds(470, 481, 115, 43);
 		panel.add(btnSaveExit);
 	}

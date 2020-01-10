@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Invoice_start_page {
+public class Invoice_start_page extends JFrame implements ActionListener {
 
 	private JFrame frame;
 	private JTextField username;
@@ -99,5 +99,11 @@ public class Invoice_start_page {
 		JLabel lblHelpUsername = new JLabel("Help : username -> jdoe   password ->  1111");
 		lblHelpUsername.setBounds(115, 277, 277, 16);
 		frame.getContentPane().add(lblHelpUsername);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
