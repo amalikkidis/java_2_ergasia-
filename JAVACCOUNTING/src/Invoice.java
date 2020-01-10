@@ -94,5 +94,13 @@ public class Invoice {
 	public void setItems(HashMap<String, Integer> cart) {
 		this.cart = cart;
 	}
+	
+	public BigDecimal getTotalPrice() {
+		BigDecimal totalValue = new BigDecimal("0.0");
+		for (String productName : cart.keySet()) {
+			totalValue.add(Product.getProductByName(productName).getPriceWithVat());
+		}
+		return totalValue;
+	}
 
 }
