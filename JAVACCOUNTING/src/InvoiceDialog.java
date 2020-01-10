@@ -210,7 +210,7 @@ public class InvoiceDialog extends JFrame {
 				else {
 					quantity += posotita_int;
 				}
-				
+				final_price.setText(invoice.getTotalPrice().toString());
 			}
 		});
 		btnAdd.setBounds(753, 126, 115, 50);
