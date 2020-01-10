@@ -208,6 +208,10 @@ public class InvoiceDialog extends JFrame {
 		final_price.setBounds(810, 471, 116, 22);
 		panel.add(final_price);
 		final_price.setColumns(10);
+		
+		JButton btnSaveExit = new JButton("Save & Exit");
+		btnSaveExit.setBounds(470, 481, 115, 43);
+		panel.add(btnSaveExit);
 	}
 
 	public InvoiceDialog(Invoice invoice) {
