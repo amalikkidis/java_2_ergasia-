@@ -204,11 +204,14 @@ public class InvoiceDialog extends JFrame {
 				scrollPanePanel.add(new ProductJpanel(pro, posotita_int));
 				scrollPanePanel.revalidate();
 				Integer quantity = invoice.getItems().get(comboBoxString);
+				
 				if(quantity == null) {
 					invoice.getItems().put(comboBoxString, posotita_int);
 				}
 				else {
 					quantity += posotita_int;
+					invoice.getItems().put(comboBoxString, quantity);
+					
 				}
 				final_price.setText(invoice.getTotalPrice().toString());
 			}
