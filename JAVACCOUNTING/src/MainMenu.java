@@ -9,10 +9,20 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Window;
 
 public class MainMenu extends JFrame {
 
 	private JPanel contentPane;
+	private JFrame frame2;
+
+	public JFrame getFrame2() {
+		return frame2;
+	}
+
+	public void setFrame2(JFrame frame2) {
+		this.frame2 = frame2;
+	}
 
 	/**
 	 * Launch the application.
@@ -66,3 +76,4 @@ public class MainMenu extends JFrame {
 		contentPane.add(logout_btn);
 	}
 }
+
