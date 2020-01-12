@@ -14,15 +14,7 @@ import java.awt.Window;
 public class MainMenu extends JFrame {
 
 	private JPanel contentPane;
-	private JFrame frame;
-
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
+	
 
 	/**
 	 * Launch the application.
@@ -31,8 +23,8 @@ public class MainMenu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainMenu window = new MainMenu();
-					window.frame.setVisible(true);
+					MainMenu frame = new MainMenu();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
