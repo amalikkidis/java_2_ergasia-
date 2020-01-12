@@ -10,6 +10,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Window;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainMenu extends JFrame {
 
@@ -36,6 +38,7 @@ public class MainMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public MainMenu() {
+		super();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 864, 538);
 		contentPane = new JPanel();
@@ -57,6 +60,13 @@ public class MainMenu extends JFrame {
 		contentPane.add(btnIncomeStatement);
 		
 		JButton btnInvoice = new JButton("Invoice");
+		btnInvoice.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				InvoiceDialog d = new InvoiceDialog();
+				d.setVisible(true);
+				
+			}
+		});
 		btnInvoice.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 17));
 		btnInvoice.setBackground(new Color(138, 43, 226));
 		btnInvoice.setBounds(340, 334, 180, 46);

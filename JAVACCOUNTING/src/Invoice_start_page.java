@@ -72,6 +72,7 @@ public class Invoice_start_page extends JFrame {
 					
 					MainMenu c = new MainMenu();
 					c.setVisible(true);
+					dispose();
 				}
 				else {
 					JOptionPane.showMessageDialog(getParent(), "Invalid username or password");
