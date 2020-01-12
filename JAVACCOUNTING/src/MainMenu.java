@@ -14,14 +14,14 @@ import java.awt.Window;
 public class MainMenu extends JFrame {
 
 	private JPanel contentPane;
-	private JFrame frame2;
+	private JFrame frame;
 
-	public JFrame getFrame2() {
-		return frame2;
+	public JFrame getFrame() {
+		return frame;
 	}
 
-	public void setFrame2(JFrame frame2) {
-		this.frame2 = frame2;
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 
 	/**
@@ -31,8 +31,8 @@ public class MainMenu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainMenu frame = new MainMenu();
-					frame.setVisible(true);
+					MainMenu window = new MainMenu();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

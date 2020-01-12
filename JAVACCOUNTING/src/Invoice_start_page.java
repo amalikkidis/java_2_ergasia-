@@ -79,7 +79,7 @@ public class Invoice_start_page {
 					 * first_iframe.setVisible(true);
 					 */
 					MainMenu c = new MainMenu();
-					c.getFrame2().setVisible(true);
+					c.getFrame().setVisible(true);
 				}
 				else {
 					JOptionPane.showMessageDialog(frame, "Invalid username or password");
