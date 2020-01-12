@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Invoice_start_page {
+public class Invoice_start_page extends JFrame {
 
 	private JFrame frame; // to connect message window with parent login frame
 	public JFrame getFrame() {
@@ -53,6 +53,7 @@ public class Invoice_start_page {
 	 * Create the application.
 	 */
 	public Invoice_start_page() {
+		super();
 		initialize();
 	}
 
@@ -78,12 +79,17 @@ public class Invoice_start_page {
 					 * first_invoice_frame first_iframe = new first_invoice_frame();
 					 * first_iframe.setVisible(true);
 					 */
-					MainMenu c = new MainMenu();
-					c.getFrame2().setVisible(true);
+					
+					this.setVisible(true);
 				}
 				else {
 					JOptionPane.showMessageDialog(frame, "Invalid username or password");
 				}
+			}
+
+			private void setVisible(boolean b) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 		btnNewButton.setBounds(344, 332, 150, 54);
