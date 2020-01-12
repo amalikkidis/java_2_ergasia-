@@ -236,7 +236,7 @@ public class InvoiceDialog extends JFrame {
 		btnSaveExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Invoice_start_page b = new Invoice_start_page();
-				b.getFrame().setVisible(true);
+				b.setVisible(true);
 				dispose();
 			}
 		});
