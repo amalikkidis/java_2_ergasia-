@@ -34,9 +34,6 @@ public class Invoice {
 		this.totalValue = new BigDecimal("0.0");
 		this.totalValue.setScale(2, BigDecimal.ROUND_HALF_EVEN);
 		this.cart = new HashMap<String, Integer>();
-		this.cart.put("Orange", 30);
-		this.cart.put("Apple", 10);
-		this.cart.put("Banana", 5);
 	}
 
 	public int getInvoiceNumber() {
@@ -98,7 +95,8 @@ public class Invoice {
 	public BigDecimal getTotalPrice() {
 		BigDecimal totalValue = new BigDecimal("0.0");
 		for (String productName : cart.keySet()) {
-			totalValue = totalValue.add(Product.getProductByName(productName).getPriceWithVat());
+			Product product = Product.getProductByName(productName);
+			totalValue = totalValue.add(product.getPriceWithVat().multiply(new BigDecimal(cart.get(productName))));
 		}
 		return totalValue;
 	}

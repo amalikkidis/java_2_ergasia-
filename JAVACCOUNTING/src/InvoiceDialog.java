@@ -266,6 +266,6 @@ public class InvoiceDialog extends JFrame {
 		String productName = String.valueOf(comboBox_product.getSelectedItem());
 		Product product = Product.getProductByName(productName);
 		this.priceLabel.setText(product.getPrice().toString());
-		this.posotita.setText(invoice.getItems().get(productName).toString());
+		this.posotita.setText("10");
 	}
 }
