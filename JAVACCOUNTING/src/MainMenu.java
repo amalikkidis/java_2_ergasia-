@@ -70,7 +70,7 @@ public class MainMenu extends JFrame {
 		JButton btnInvoice = new JButton("Invoice");
 		btnInvoice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				InvoiceDialog d = new InvoiceDialog();
+				InvoiceDialog d = new InvoiceDialog(new Invoice());
 				d.setVisible(true);
 				
 			}

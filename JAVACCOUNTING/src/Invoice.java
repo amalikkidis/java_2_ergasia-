@@ -7,14 +7,14 @@ import java.util.HashMap;
 public class Invoice {
 	private int invoiceNumber;
 	private String ssn, manufacturer;
-	private Date issueDate;
+	private String issueDate;
 	private BigDecimal totalValue;
 	private HashMap<String, Integer> cart; // Map product name (should be unique) to quantity
 	private Vat vat;
 	
-	private static HashMap<Integer, Invoice> invoices; // Map invoice number to the whole Invoice object
+	private static HashMap<Integer, Invoice> invoices = new HashMap<Integer, Invoice>(); // Map invoice number to the whole Invoice object
 
-	public Invoice(int invoiceNumber, String ssn, String manufacturer, Date issueDate, Vat vat, BigDecimal totalValue,
+	public Invoice(int invoiceNumber, String ssn, String manufacturer, String issueDate, Vat vat, BigDecimal totalValue,
 			HashMap<String, Integer> cart) {
 		super();
 		this.invoiceNumber = invoiceNumber;
@@ -31,7 +31,7 @@ public class Invoice {
 		this.invoiceNumber = 0;
 		this.ssn = "Enter SSN";
 		this.manufacturer = "Enter Manufacturer";
-		this.issueDate = new Date();
+		this.issueDate = new Date().toString();
 		this.vat = Vat.LOW;
 		this.totalValue = new BigDecimal("0.0");
 		this.totalValue.setScale(2, BigDecimal.ROUND_HALF_EVEN);
@@ -62,11 +62,11 @@ public class Invoice {
 		this.manufacturer = manufacturer;
 	}
 
-	public Date getIssueDate() {
+	public String getIssueDate() {
 		return issueDate;
 	}
 
-	public void setIssueDate(Date issueDate) {
+	public void setIssueDate(String issueDate) {
 		this.issueDate = issueDate;
 	}
 

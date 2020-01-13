@@ -210,8 +210,6 @@ public class InvoiceDialog extends JFrame {
 				Product pro = Product.getProductByName(comboBoxString);
 				String posotita_string = posotita.getText();
 				Integer posotita_int = Integer.parseInt(posotita_string);
-				scrollPanePanel.add(new ProductJpanel(pro, posotita_int));
-				scrollPanePanel.revalidate();
 				Integer quantity = invoice.getItems().get(comboBoxString);
 				
 				if(quantity == null) {
@@ -222,6 +220,7 @@ public class InvoiceDialog extends JFrame {
 					invoice.getItems().put(comboBoxString, quantity);
 					
 				}
+				drawCart();
 				final_price.setText(invoice.getTotalPrice().toString());
 			}
 		});
@@ -256,12 +255,10 @@ public class InvoiceDialog extends JFrame {
 				String ssn = afm.getText();
 				String imerominia_ek = im_ekdosis.getText();
 				String paragogos_s = paragogos.getText();
-				try {
-					Date theDate = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy").parse(imerominia_ek);// stackoverflow
-				} catch (ParseException e) {
-					
-					e.printStackTrace();
-				} 
+				invoice.setInvoiceNumber(invoice_Num);
+				invoice.setSsn(ssn);
+				invoice.setIssueDate(imerominia_ek);
+				invoice.setManufacturer(paragogos_s);
 				Invoice.store(invoice);
 				Invoice_start_page b = new Invoice_start_page();
 				b.setVisible(true);
@@ -303,5 +300,17 @@ public class InvoiceDialog extends JFrame {
 		Product product = Product.getProductByName(productName);
 		this.priceLabel.setText(product.getPrice().toString());
 		this.posotita.setText("10");
+		drawCart();
+	}
+	
+	public void drawCart() {
+		scrollPanePanel.removeAll();
+		for (String productName : invoice.getItems().keySet()) {
+			Integer quantity = invoice.getItems().get(productName);
+			Product product = Product.getProductByName(productName);
+			scrollPanePanel.add(new ProductJpanel(product, quantity));
+		}
+		scrollPanePanel.revalidate();
+		final_price.setText(invoice.getTotalPrice().toString());
 	}
 }
