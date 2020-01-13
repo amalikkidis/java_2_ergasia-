@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
+
 import java.awt.CardLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
@@ -14,6 +16,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -47,6 +52,7 @@ public class InvoiceDialog extends JFrame {
 	private JLabel vat_label;
 	private Invoice invoice;
 	private JLabel invoice_icon; 
+	private String input;
 
 	/**
 	 * Launch the application.
@@ -245,6 +251,18 @@ public class InvoiceDialog extends JFrame {
 		JButton btnSaveExit = new JButton("Save & Exit");
 		btnSaveExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String invoice_num = arithmos_tim.getText();
+				Integer invoice_Num = Integer.parseInt(invoice_num);
+				String ssn = afm.getText();
+				String imerominia_ek = im_ekdosis.getText();
+				String paragogos_s = paragogos.getText();
+				try {
+					Date theDate = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy").parse(imerominia_ek);// stackoverflow
+				} catch (ParseException e) {
+					
+					e.printStackTrace();
+				} 
+				Invoice.store(invoice);
 				Invoice_start_page b = new Invoice_start_page();
 				b.setVisible(true);
 				dispose();
@@ -252,6 +270,24 @@ public class InvoiceDialog extends JFrame {
 		});
 		btnSaveExit.setBounds(470, 481, 115, 43);
 		panel.add(btnSaveExit);
+		
+		JButton btnCheckHistory = new JButton("Check History");
+		btnCheckHistory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			 input = JOptionPane.showInputDialog("Please enter Invoice number:");
+			 Integer input_i = Integer.parseInt(input);
+			 Invoice invoice = Invoice.getByNumber(input_i);
+			 if(invoice == null) {
+				 JOptionPane.showMessageDialog(getParent(),"The Invoice number you have entered does not exist.");
+			 }
+			 else {
+				 InvoiceDialog i  = new InvoiceDialog(invoice);
+				 i.setVisible(true);
+			 }
+			}
+		});
+		btnCheckHistory.setBounds(47, 482, 148, 42);
+		panel.add(btnCheckHistory);
 	}
 
 	public InvoiceDialog(Invoice invoice) {
