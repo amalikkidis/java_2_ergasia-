@@ -11,6 +11,8 @@ public class Invoice {
 	private BigDecimal totalValue;
 	private HashMap<String, Integer> cart; // Map product name (should be unique) to quantity
 	private Vat vat;
+	
+	private static HashMap<Integer, Invoice> invoices; // Map invoice number to the whole Invoice object
 
 	public Invoice(int invoiceNumber, String ssn, String manufacturer, Date issueDate, Vat vat, BigDecimal totalValue,
 			HashMap<String, Integer> cart) {
@@ -24,7 +26,7 @@ public class Invoice {
 		this.totalValue = totalValue;
 		this.cart = cart;
 	}
-
+	
 	public Invoice() {
 		this.invoiceNumber = 0;
 		this.ssn = "Enter SSN";
@@ -99,6 +101,14 @@ public class Invoice {
 			totalValue = totalValue.add(product.getPriceWithVat().multiply(new BigDecimal(cart.get(productName))));
 		}
 		return totalValue;
+	}
+	
+	public static void store(Invoice invoice) {
+		invoices.put(invoice.getInvoiceNumber(), invoice);
+	}
+	
+	public static Invoice getByNumber(int invoiceNumber) {
+		return invoices.get(invoiceNumber);
 	}
 
 }
