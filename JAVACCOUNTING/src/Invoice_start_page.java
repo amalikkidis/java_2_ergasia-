@@ -1,12 +1,15 @@
-package src;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -23,6 +26,7 @@ public class Invoice_start_page extends JFrame {
 
 	private JTextField username;
 	private JTextField password;
+	private JLabel icon_label;
 
 	/*
 	 * Launch the application.
@@ -57,6 +61,8 @@ public class Invoice_start_page extends JFrame {
 		this.getContentPane().setLayout(null);
 		// login
 		JButton btnNewButton = new JButton("login");
+		Image image2 = new ImageIcon(this.getClass().getResource("login2.png")).getImage();
+		btnNewButton.setIcon(new ImageIcon(image2));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String usern = username.getText();
@@ -115,7 +121,11 @@ public class Invoice_start_page extends JFrame {
 		JLabel lblHelpUsername = new JLabel("Help : username -> jdoe   password ->  1111");
 		lblHelpUsername.setBounds(115, 277, 277, 16);
 		this.getContentPane().add(lblHelpUsername);
+		
+		icon_label = new JLabel("");
+		Image image1 = new ImageIcon(this.getClass().getResource("login.png")).getImage();
+		icon_label.setIcon(new ImageIcon(image1));
+		icon_label.setBounds(600, 125, 150, 180);
+		getContentPane().add(icon_label);
 	}
-
-	
 }
