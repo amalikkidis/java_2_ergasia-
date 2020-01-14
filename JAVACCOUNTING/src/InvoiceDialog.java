@@ -266,7 +266,7 @@ public class InvoiceDialog extends JFrame {
 				invoice.setIssueDate(imerominia_ek);
 				invoice.setManufacturer(paragogos_s);
 				Invoice.store(invoice);
-				Invoice_start_page b = new Invoice_start_page();
+				MainMenu b = new MainMenu();
 				b.setVisible(true);
 				dispose();
 			}
