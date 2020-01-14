@@ -12,6 +12,7 @@ import java.awt.Image;
 
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
 import java.awt.event.ActionEvent;
 
 public class Invoice_start_page extends JFrame {
@@ -32,6 +33,15 @@ public class Invoice_start_page extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		new Product("Banana", new BigDecimal("0.14"), Vat.NONE).addToProductMap();
+		new Product("Apple", new BigDecimal("0.08"), Vat.STANDARD).addToProductMap();
+		new Product("Orange", new BigDecimal("0.06"), Vat.LOW).addToProductMap();
+		new Product("Carrot", new BigDecimal("0.17"), Vat.LOW).addToProductMap();
+		new Product("Broccoli", new BigDecimal("0.56"), Vat.LOW).addToProductMap();
+		new Product("Lettuce", new BigDecimal("0.99"), Vat.LOW).addToProductMap();
+		new Product("Pineapple", new BigDecimal("0.98"), Vat.STANDARD).addToProductMap();
+		new Product("Grapes", new BigDecimal("0.54"), Vat.STANDARD).addToProductMap();
+		new Product("Watermelon", new BigDecimal("0.69"), Vat.NONE).addToProductMap();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

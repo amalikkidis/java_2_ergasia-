@@ -61,6 +61,12 @@ public class InvoiceDialog extends JFrame {
 		new Product("Banana", new BigDecimal("0.14"), Vat.NONE).addToProductMap();
 		new Product("Apple", new BigDecimal("0.08"), Vat.STANDARD).addToProductMap();
 		new Product("Orange", new BigDecimal("0.06"), Vat.LOW).addToProductMap();
+		new Product("Carrot", new BigDecimal("0.17"), Vat.LOW).addToProductMap();
+		new Product("Broccoli", new BigDecimal("0.56"), Vat.LOW).addToProductMap();
+		new Product("Lettuce", new BigDecimal("0.99"), Vat.LOW).addToProductMap();
+		new Product("Pineapple", new BigDecimal("0.98"), Vat.STANDARD).addToProductMap();
+		new Product("Grapes", new BigDecimal("0.54"), Vat.STANDARD).addToProductMap();
+		new Product("Watermelon", new BigDecimal("0.69"), Vat.NONE).addToProductMap();
 		InvoiceDialog frame = new InvoiceDialog(new Invoice());
 		frame.setVisible(true);
 		
