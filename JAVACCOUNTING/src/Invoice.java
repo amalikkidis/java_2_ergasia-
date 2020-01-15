@@ -98,7 +98,7 @@ public class Invoice {
 		BigDecimal totalValue = new BigDecimal("0.0");
 		for (String productName : cart.keySet()) {
 			Product product = Product.getProductByName(productName);
-			totalValue = totalValue.add(product.getPriceWithVat().multiply(new BigDecimal(cart.get(productName))));
+			totalValue = totalValue.add(product.getPriceWithVat().multiply(new BigDecimal(cart.get(productName)))); // multiplies totalotalValus(value+vat) * quantity
 		}
 		return totalValue;
 	}
