@@ -294,7 +294,7 @@ public class InvoiceDialog extends JFrame {
 	}
 
 	public InvoiceDialog(Invoice invoice) {
-		this(); //kalw ton constructor poy den pairnei orismata gia na ftiaxei to arxiko dialog me ta default arxika keimena
+		this(); //kalw ton constructor poy den pairnei orismata gia na ftiaxei to arxiko dialog
 		this.arithmos_tim.setText("" + invoice.getInvoiceNumber());
 		this.afm.setText(invoice.getSsn());
 		this.paragogos.setText(invoice.getManufacturer());
