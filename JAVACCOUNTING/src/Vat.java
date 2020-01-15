@@ -17,7 +17,7 @@ public enum Vat {
         return value;
     }
     
-    public String getVatString() { //metatrepei to vat apo dekadiko se string %, px to 0.23 to kanei 23% 
+    public String getVatString() { //metatrepei to vat apo dekadiko se string %, px to 0.23 to kanei "23.00%" 
     	return getValue().multiply(new BigDecimal(100)).toString() + "%";
     }
 }
