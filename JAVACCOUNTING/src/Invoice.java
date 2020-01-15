@@ -1,21 +1,21 @@
 
 
-import java.math.BigDecimal;
+import java.math.BigDecimal; // gia na min xanoume se akriveia stis times twn proiontwn otan kanoume prakseis
 import java.util.Date;
 import java.util.HashMap;
 
 public class Invoice {
-	private int invoiceNumber;
+	private int invoiceNumber; 
 	private String ssn, manufacturer;
-	private String issueDate;
-	private BigDecimal totalValue;
-	private HashMap<String, Integer> cart; // Map product name (should be unique) to quantity
-	private Vat vat;
+	private String issueDate; 
+	private BigDecimal totalValue; //sunoliki aksia olou tou timologio (times + vat)
+	private HashMap<String, Integer> cart; // MapQ product name (monadiko key) to quantity(value) (kalathi agorwn me polla proionta)
+	private Vat vat; 
 	
-	private static HashMap<Integer, Invoice> invoices = new HashMap<Integer, Invoice>(); // Map invoice number to the whole Invoice object
+	private static HashMap<Integer, Invoice> invoices = new HashMap<Integer, Invoice>(); // Map: invoice number (key) to the whole Invoice object(value)
 
 	public Invoice(int invoiceNumber, String ssn, String manufacturer, String issueDate, Vat vat, BigDecimal totalValue,
-			HashMap<String, Integer> cart) {
+			HashMap<String, Integer> cart) { //Constructor pou ftiaxnei ena invoice me times pou orizoyme otan ton kaloume
 		super();
 		this.invoiceNumber = invoiceNumber;
 		this.ssn = ssn;
@@ -27,7 +27,7 @@ public class Invoice {
 		this.cart = cart;
 	}
 	
-	public Invoice() {
+	public Invoice() {  //constructor pou ftiaxnei invoice me arxikopoihmenes times
 		this.invoiceNumber = 0;
 		this.ssn = "Enter SSN";
 		this.manufacturer = "Enter Manufacturer";
@@ -86,28 +86,28 @@ public class Invoice {
 		this.vat = vat;
 	}
 
-	public HashMap<String, Integer> getItems() {
+	public HashMap<String, Integer> getItems() { //epistrefei to kalathi twn agorwn mas (product name + quantity)
 		return cart;
 	}
 
-	public void setItems(HashMap<String, Integer> cart) {
-		this.cart = cart;
+	public void setItems(HashMap<String, Integer> cart) { //kanei set to kalathi twn agorwn mas
+		this.cart = cart; 
 	}
 	
-	public BigDecimal getTotalPrice() {
+	public BigDecimal getTotalPrice() { //ypologizei thn synoliki timi olwn twn proiontwn mesa sto cart
 		BigDecimal totalValue = new BigDecimal("0.0");
-		for (String productName : cart.keySet()) {
+		for (String productName : cart.keySet()) { //prospelasi se ola ta key tou kart
 			Product product = Product.getProductByName(productName);
 			totalValue = totalValue.add(product.getPriceWithVat().multiply(new BigDecimal(cart.get(productName)))); // multiplies totalValue(value+vat) * quantity
 		}
 		return totalValue;
 	}
 	
-	public static void store(Invoice invoice) {
+	public static void store(Invoice invoice) { //apothikeuei proswrina to invoice
 		invoices.put(invoice.getInvoiceNumber(), invoice);
 	}
 	
-	public static Invoice getByNumber(int invoiceNumber) {
+	public static Invoice getByNumber(int invoiceNumber) { //kanei get to invoice me vasi to invoice number
 		return invoices.get(invoiceNumber);
 	}
 
